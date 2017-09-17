@@ -1,0 +1,30 @@
+﻿<div>
+    <h2>New Note</h2>
+    <form #newNoteForm="ngForm" novalidate (ngSubmit)="addNote(title, textArea.value, lifetime)">
+        <div class="col-xs-8">
+            <div class="form-group">
+                <label>Note Name</label>
+                <input class="form-control" name="title" [(ngModel)]="title" [autofocus]="true" required/>
+            </div>
+            <div class="form-group">
+                <label>Text</label>
+                <textarea class="form-control" name="noteText" id="noteText" [(ngModel)]="text" required #textArea></textarea>
+            </div>
+            <div class="form-group">
+                <label>Lifetime</label>
+                <select class="form-control" name="lifetime" [(ngModel)]="lifetime">
+                    <option *ngFor="let lifetimeitem of lifetimeitems" [ngValue]="lifetimeitem">
+                        {{lifetimeitem}}
+                    </option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="submit" [disabled]="newNoteForm.invalid" class="btn btn-default" value="Add note"/>
+            </div>
+            <p></p>
+            <div class="alert alert-danger" *ngIf="_hasErrors">
+                <strong>Error! </strong>{{_errorMessage}}
+            </div>
+        </div>
+    </form>
+</div>

@@ -1,0 +1,30 @@
+<div>
+    <H2>Notes List</H2>
+    
+    <div class="form-group">
+        <button class="btn btn-default" (click)="newNote()">New note</button>
+    </div>
+    
+    <table class='table' *ngIf="_notesCollection">
+        <thead>
+        <tr>
+            <th>Title</th>
+            <th>Create Date Time</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let noteItem of _notesCollection">
+            <td>
+                <a [routerLink]="['/notes', noteItem.title]">
+                    {{ noteItem.title }}
+                </a>
+            </td>
+            <td>{{ noteItem.createDateTime | date:'medium' }}</td>
+        </tr>
+        </tbody>
+    </table>
+    
+    <div class="alert alert-danger" *ngIf="_hasErrors">
+        <strong>Error! </strong>{{_errorMessage}}
+    </div>
+</div>

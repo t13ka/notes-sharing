@@ -1,0 +1,27 @@
+﻿<div *ngIf="_loadedNote != null">
+    <h2>Note Details</h2>
+    <div class="col-xs-8">
+        <div class="form-group">
+            <label>Note Name</label>
+            <input class="form-control" value="{{_loadedNote.title}}" [readonly]="true"/>
+        </div>
+        <div class="form-group">
+            <label>Text</label>
+            <textarea class="form-control" value="{{_loadedNote.text}}" [readonly]="true"></textarea>
+        </div>
+        
+        <div class="form-group">
+            <label>Create Date Time</label>
+            <input class="form-control" value="{{_loadedNote.createDateTime | date:'medium'}}" [readonly]="true" />
+        </div>
+
+        <div class="form-group" *ngIf="_loadedNote.lifetime != null">
+            <label>Lifetime</label>
+            <input class="form-control" value="{{_loadedNote.lifetime | date:'medium'}}" [readonly]="true" />
+        </div>
+
+        <div class="alert alert-danger" *ngIf="_hasErrors">
+            <strong>Error! </strong>{{_errorMessage}}
+        </div>
+    </div>
+</div>
