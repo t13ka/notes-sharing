@@ -19,7 +19,8 @@
                 var utcNow = DateTime.UtcNow;
                 var presetItem = new NoteRepositoryItem
                                      {
-                                         CreateDateTime = utcNow,
+                                         Id = NotesService.GenerateId(),
+                                         CreateDateTime = utcNow.AddMinutes(i),
                                          Title = $"Some title of note {i}",
                                          Text = $"Some text {i}",
                                          Lifetime = utcNow.AddMinutes(i)

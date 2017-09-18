@@ -32,7 +32,7 @@ import { BrowserModule } from '@angular/platform-browser';
             { path: '', redirectTo: 'notes', pathMatch: 'full' },
             { path: 'notes', component: NotesListComponent },
             { path: 'new-note', component: NewNoteComponent },
-            { path: 'notes/:title', component: NoteDetailsComponent },
+            { path: 'notes/:id', component: NoteDetailsComponent },
             { path: 'page-not-found', component: PageNotFoundComponent },
             { path: '**', component: PageNotFoundComponent }
         ])

@@ -27,7 +27,7 @@ export class NotesListComponent implements OnInit {
     }
 
     loadNotes(): void {
-        this._notesDataService.get()
+        this._notesDataService.getAll()
             .subscribe(notes => {
                 this._notesCollection = notes;
             }, error => {

@@ -13,7 +13,7 @@
             <div class="form-group">
                 <label>Lifetime</label>
                 <select class="form-control" name="lifetime" [(ngModel)]="lifetime">
-                    <option *ngFor="let lifetimeitem of lifetimeitems" [ngValue]="lifetimeitem">
+                    <option *ngFor="let lifetimeitem of _lifetimeitems" [ngValue]="lifetimeitem">
                         {{lifetimeitem}}
                     </option>
                 </select>

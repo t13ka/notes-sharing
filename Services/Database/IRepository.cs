@@ -19,6 +19,8 @@
 
         T GetByTitle(string title);
 
+        T GetById(string id);
+
         IList<T> SearchFor(Expression<Func<T, bool>> predicate);
 
         void Update(T entity);

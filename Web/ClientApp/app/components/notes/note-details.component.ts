@@ -4,7 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 
 export class NoteDetailsItemModel {
-    constructor(public title: string, public text: string, public lifetime: string, public createDateTime: string) {}
+    constructor(public id: string, public title: string, public text: string, public lifetime: string, public createDateTime: string) {}
 }
 
 @Component({
@@ -29,16 +29,16 @@ export class NoteDetailsComponent implements OnInit {
 
     ngOnInit() {
         this.route.params.subscribe(params => {
-            let title = params['title'];
-            this.loadNote(title);
+            let id = params['id'];
+            this.loadNote(id);
         });
     }
 
-    loadNote(title: string) {
-        this._notesDataService.getByTitle(title)
+    loadNote(id: string) {
+        this._notesDataService.getById(id)
             .subscribe(note => {
                     this._loadedNote =
-                    new NoteDetailsItemModel(note.title, note.text, note.lifetime, note.createDateTime);
+                    new NoteDetailsItemModel(note.id, note.title, note.text, note.lifetime, note.createDateTime);
                 },
                 error => {
                     console.error(error);

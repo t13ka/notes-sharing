@@ -32,13 +32,13 @@
             return Json(responseData);
         }
 
-        [HttpGet(template: "{title}")]
-        public IActionResult GetNoteById(string title)
+        [HttpGet(template: "{id}")]
+        public IActionResult GetNoteById(string id)
         {
             JsonResult result;
-            if (string.IsNullOrEmpty(title) == false)
+            if (string.IsNullOrEmpty(id) == false)
             {
-                var item = _notesService.GetByTitle(title);
+                var item = _notesService.GetById(id);
 
                 if (item == null)
                 {
@@ -66,16 +66,11 @@
         {
             if (ModelState.IsValid)
             {
-                var isExists = _notesService.GetByTitle(model.Title);
-                if (isExists != null)
-                {
-                    return BadRequest($"The note with title \"{model.Title}\" is already exists!");
-                }
-
                 var dateTimeOffset = NotesService.GetDateTimeOffsetValue(model.Lifetime);
 
                 var item = new NoteRepositoryItem
                                {
+                                   Id = NotesService.GenerateId(),
                                    Title = model.Title,
                                    Text = model.NoteText,
                                    CreateDateTime = DateTime.UtcNow,

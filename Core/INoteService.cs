@@ -10,6 +10,8 @@
 
         NoteRepositoryItem GetByTitle(string title);
 
+        NoteRepositoryItem GetById(string id);
+
         IEnumerable<NoteRepositoryItem> GetAll();
     }
 }

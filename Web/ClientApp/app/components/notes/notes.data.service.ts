@@ -22,25 +22,22 @@ export class NotesDataService{
         this._url = this._baseUrl + "api/notes";
     }
 
-    get(): Observable<any> {
+    getAll(): Observable<any> {
         return this._http.get(this._url)
             .map((response: Response) => <any>response.json() as NoteItemModel[])
             //.do(data => console.log(JSON.stringify(data)))
             .catch(this.handleError);
     }
 
-    getByTitle(title: string): Observable<any> {
-        var url = this._url + "/" + title;
+    getById(id: string): Observable<any> {
+        var url = this._url + "/" + id;
 
         return this._http.get(url)
             .map((response: Response) => <any>response.json() as NoteItemModel)
-            //.do(data => console.info(JSON.stringify(data)))
             .catch(this.handleError);
     }
 
     post(model: any): Observable<any> {
-        console.info(model);
-        //let body = JSON.stringify(model);
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
         return this._http.post(this._url, model, options)

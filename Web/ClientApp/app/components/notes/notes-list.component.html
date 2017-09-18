@@ -2,7 +2,7 @@
     <H2>Notes List</H2>
     
     <div class="form-group">
-        <button class="btn btn-default" (click)="newNote()">New note</button>
+        <button class="btn btn-default" (click)="newNote()">Create note</button>
     </div>
     
     <table class='table' *ngIf="_notesCollection">
@@ -15,7 +15,7 @@
         <tbody>
         <tr *ngFor="let noteItem of _notesCollection">
             <td>
-                <a [routerLink]="['/notes', noteItem.title]">
+                <a [routerLink]="['/notes', noteItem.id]">
                     {{ noteItem.title }}
                 </a>
             </td>

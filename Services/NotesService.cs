@@ -16,6 +16,11 @@
             _notesRepository = new NotesRepository();
         }
 
+        public static string GenerateId()
+        {
+            return Guid.NewGuid().ToString().Replace("-", string.Empty);
+        }
+
         public static DateTimeOffset? GetDateTimeOffsetValue(string key)
         {
             DateTimeOffset? dateTimeOffset;
@@ -57,6 +62,11 @@
         public NoteRepositoryItem GetByTitle(string title)
         {
             return _notesRepository.GetByTitle(title);
+        }
+
+        public NoteRepositoryItem GetById(string id)
+        {
+            return _notesRepository.GetById(id);
         }
 
         public IEnumerable<NoteRepositoryItem> GetAll()

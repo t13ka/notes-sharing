@@ -1,4 +1,4 @@
-﻿import { Component, ElementRef, Renderer  } from '@angular/core';
+﻿import { Component } from '@angular/core';
 import { NotesDataService } from './notes.data.service'
 import { Router } from '@angular/router';
 
@@ -16,18 +16,12 @@ export class NewNoteItemModel {
     `]
 })
 export class NewNoteComponent {
-    lifetimeitems: string[] = ["Never", "10 minutes", "1 hour", "1 day", "1 week", "1 month"];
+    _lifetimeitems: string[] = ["Never", "10 minutes", "1 hour", "1 day", "1 week", "1 month"];
     _errorMessage: string;
     _hasErrors: boolean = false;
 
     constructor(private _notesDataService: NotesDataService,
-        private router: Router,
-        private el: ElementRef,
-        private renderer: Renderer) {
-    }
-
-    htmlEntities(str: any) {
-        return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+        private router: Router) {
     }
 
     addNote(title: string, noteText: string, lifetime: string) {

@@ -47,6 +47,11 @@ namespace Services.Database
             return _collection.FirstOrDefault(t => t.Title == title);
         }
 
+        public T GetById(string id)
+        {
+            return _collection.FirstOrDefault(t => t.Id == id);
+        }
+
         public virtual IList<T> SearchFor(Expression<Func<T, bool>> predicate)
         {
             var r = _collection.AsQueryable().Where(predicate.Compile()).ToList();
