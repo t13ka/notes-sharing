@@ -14,19 +14,19 @@
         /// </summary>
         public NotesRepository()
         {
-            for (var i = -3; i < 20; i++)
-            {
-                var utcNow = DateTime.UtcNow;
-                var presetItem = new NoteRepositoryItem
-                                     {
-                                         Id = NotesService.GenerateId(),
-                                         CreateDateTime = utcNow.AddMinutes(i),
-                                         Title = $"Some title of note {i}",
-                                         Text = $"Some text {i}",
-                                         Lifetime = utcNow.AddMinutes(i)
-                                     };
-                Create(presetItem);
-            }
+            //for (var i = -3; i < 20; i++)
+            //{
+            //    var utcNow = DateTime.UtcNow;
+            //    var presetItem = new NoteRepositoryItem
+            //                         {
+            //                             Id = NotesService.GenerateId(),
+            //                             CreateDateTime = utcNow.AddMinutes(i),
+            //                             Title = $"Some title of note {i}",
+            //                             Text = $"Some text {i}",
+            //                             Lifetime = utcNow.AddMinutes(i)
+            //                         };
+            //    Create(presetItem);
+            //}
         }
     }
 }
